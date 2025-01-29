@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManagementController\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Authentication.login');
+});
+
+
+Route::controller(IndexController::class)->group(function () {
+    route::get('/index', 'index')->name('index');
 });
